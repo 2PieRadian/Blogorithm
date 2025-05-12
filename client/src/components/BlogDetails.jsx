@@ -13,7 +13,13 @@ export default function BlogDetails() {
     async function getSingleBlog() {
       try {
         setisLoading(true);
+
         const response = await fetch(`http://localhost:3000/blogs/${id}`);
+        if (!response.ok) {
+          navigate("/404");
+          return;
+        }
+
         const data = await response.json();
         setBlog(data);
         setisLoading(false);
@@ -22,7 +28,7 @@ export default function BlogDetails() {
       }
     }
     getSingleBlog();
-  }, [id]);
+  }, [id, navigate]);
 
   async function deleteBlogHandler(id) {
     try {
@@ -43,8 +49,18 @@ export default function BlogDetails() {
   return (
     <>
       <Navbar />
+
       {isLoading ? (
-        <Loader />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "4rem",
+          }}
+        >
+          <Loader size={2} />
+        </div>
       ) : (
         <>
           <div className="details">

@@ -1,3 +1,3 @@
-export default function Loader() {
-  return <p>Loading...</p>;
+export default function Loader({ size }) {
+  return <p style={{ fontSize: `${size}rem` }}>Loading...</p>;
 }

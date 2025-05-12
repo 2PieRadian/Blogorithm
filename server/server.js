@@ -22,14 +22,16 @@ mongoose
   .then((result) => {
     console.log("Connected to DB");
 
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`listening to port http://localhost:${PORT}`);
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => console.log(err));
 
 // Using 'morgan' to log request details.
-app.use(morgan("dev"));
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
 
 // This is a middleware function that parses incoming requests with URL-encoded payloads, which is the default format for form submissions.
 app.use(express.urlencoded({ extended: true }));
@@ -78,4 +80,8 @@ app.delete("/blogs/:id", (req, res) => {
       res.status(200).json("Blog deleted successfully.");
     })
     .catch((err) => res.status(500).json("Blog could not be deleted!"));
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: "Page not found!" });
 });

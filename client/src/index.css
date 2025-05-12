@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Iosevka";
-  src: url("../public/fonts/Iosevka-Regular.ttc");
+  src: url("/fonts/Iosevka-Regular.ttc");
 }
 
 * {
@@ -278,6 +278,10 @@ nav ul li a {
   }
 }
 
+.blogDetailsLoading {
+  width: 80vw auto;
+}
+
 /* --  Create Blog Page  -- */
 .create-blog {
   width: 100%;
@@ -359,4 +363,24 @@ footer {
   align-items: center;
   justify-content: center;
   color: rgb(208, 208, 208);
+}
+
+/* --  404 Not Found  -- */
+.notFoundPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  flex-direction: column;
+  gap: 20px;
+}
+.notFoundPage h1 {
+  font-size: 3rem;
+}
+.notFoundHomeLink {
+  color: rgb(34, 34, 34);
+  font-size: 1.5rem;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
