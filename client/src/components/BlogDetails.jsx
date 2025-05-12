@@ -9,12 +9,14 @@ export default function BlogDetails() {
   const [isLoading, setisLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     async function getSingleBlog() {
       try {
         setisLoading(true);
 
-        const response = await fetch(`http://localhost:3000/blogs/${id}`);
+        const response = await fetch(`${API_URL}/blogs/${id}`);
         if (!response.ok) {
           navigate("/404");
           return;
@@ -28,11 +30,11 @@ export default function BlogDetails() {
       }
     }
     getSingleBlog();
-  }, [id, navigate]);
+  }, [id, navigate, API_URL]);
 
   async function deleteBlogHandler(id) {
     try {
-      const response = await fetch(`http://localhost:3000/blogs/${id}`, {
+      const response = await fetch(`${API_URL}/blogs/${id}`, {
         method: "DELETE",
       });
 
