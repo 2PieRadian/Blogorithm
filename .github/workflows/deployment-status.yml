@@ -16,8 +16,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           env: production
           ref: main
-          description: "Deploying to Render"
-          environment-url: https://blogorithm-1.onrender.com
+          desc: "Deploying to Render"
+          env-url: https://blogorithm-1.onrender.com
 
       - name: Mark Deployment Success
         uses: bobheadxi/deployments@v1
@@ -27,4 +27,4 @@ jobs:
           env: production
           status: success
           ref: main
-          environment-url: https://blogorithm-1.onrender.com
+          env-url: https://blogorithm-1.onrender.com
