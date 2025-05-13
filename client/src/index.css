@@ -236,6 +236,7 @@ nav ul li a {
 
 .delete,
 .back {
+  text-align: center;
   padding: 10px 30px;
   font-size: 1.2rem;
   border: none;
