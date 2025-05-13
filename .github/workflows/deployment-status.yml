@@ -13,7 +13,7 @@ jobs:
         uses: bobheadxi/deployments@v1
         with:
           step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_DEPLOY_TOKEN }}
           env: production
           ref: main
           desc: "Deploying to Render"
@@ -23,7 +23,7 @@ jobs:
         uses: bobheadxi/deployments@v1
         with:
           step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_DEPLOY_TOKEN }}
           env: production
           status: success
           ref: main
