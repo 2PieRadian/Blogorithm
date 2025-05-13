@@ -17,7 +17,7 @@ jobs:
           env: production
           ref: main
           desc: "Deploying to Render"
-          env-url: https://blogorithm-1.onrender.com
+          env_url: https://blogorithm-1.onrender.com
 
       - name: Mark Deployment Success
         uses: bobheadxi/deployments@v1
@@ -27,4 +27,4 @@ jobs:
           env: production
           status: success
           ref: main
-          env-url: https://blogorithm-1.onrender.com
+          env_url: https://blogorithm-1.onrender.com
