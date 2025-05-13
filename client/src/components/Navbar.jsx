@@ -10,7 +10,7 @@ export default function Navbar() {
 
       <ul>
         <li className="x">
-          <NavLink to="/">Blogs</NavLink>
+          <NavLink to="/blogs">Blogs</NavLink>
         </li>
         <li className="x">
           <NavLink to="/about">About</NavLink>
