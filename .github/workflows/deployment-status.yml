@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create GitHub Deployment
+        id: deployment
         uses: bobheadxi/deployments@v1
         with:
           step: start
@@ -28,3 +29,4 @@ jobs:
           status: success
           ref: main
           env_url: https://blogorithm-1.onrender.com
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
