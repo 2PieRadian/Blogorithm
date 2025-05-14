@@ -1,0 +1,32 @@
+name: Report Deployment to GitHub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub Deployment
+        id: deployment
+        uses: bobheadxi/deployments@v1
+        with:
+          step: start
+          token: ${{ secrets.GH_DEPLOY_TOKEN }}
+          env: production
+          ref: main
+          desc: "Deploying to Render"
+          env_url: https://blogorithm-1.onrender.com
+
+      - name: Mark Deployment Success
+        uses: bobheadxi/deployments@v1
+        with:
+          step: finish
+          token: ${{ secrets.GH_DEPLOY_TOKEN }}
+          env: production
+          status: success
+          ref: main
+          env_url: https://blogorithm-1.onrender.com
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
